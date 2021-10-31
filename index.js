@@ -1,3 +1,4 @@
+const { application } = require('express');
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -7,6 +8,10 @@ const io = new Server(server);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/snake.js', (req, res) => {
+  res.sendFile(__dirname + '/snake.js');
 });
 
 io.on('connection', (socket) => {
